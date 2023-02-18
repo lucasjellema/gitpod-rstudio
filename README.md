@@ -21,11 +21,15 @@ The following command is to install the most recent R and some necessary depende
 ```
 sudo apt install -y r-base r-base-core r-recommended r-base-dev gdebi-core build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev
 ```
+Make default port 8787 public:
+```
+gp ports visibility 8787:public
+```
 
 Install RStudio Server using the following commands
 ```
 wget https://rstudio.org/download/latest/stable/server/bionic/rstudio-server-latest-amd64.deb
-sudo gdebi -y rstudio-server-latest-amd64.deb
+sudo gdebi --n rstudio-server-latest-amd64.deb
 ```
 
 Launch the RStudio Server
