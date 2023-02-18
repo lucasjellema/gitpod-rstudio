@@ -7,11 +7,14 @@ tasks:
       sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
       sudo apt install -y r-base r-base-core r-recommended r-base-dev gdebi-core build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev
       wget https://rstudio.org/download/latest/stable/server/bionic/rstudio-server-latest-amd64.deb
-      sudo gdebi -y rstudio-server-latest-amd64.deb
+      gp ports visibility 8787:public
+      sudo gdebi --n rstudio-server-latest-amd64.deb
       sudo rstudio-server start
       sudo useradd   -s /bin/bash -p $(echo ABCDE | openssl passwd -1 -stdin) ABCDE
   - name: Open README 
     command: gp open README.md
+  - name: Open RStudio Tab
+    command: gp preview $(gp url 8787) --external
 ports:
   # RStudio port
   - port: 8787
