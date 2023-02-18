@@ -32,18 +32,22 @@ wget https://rstudio.org/download/latest/stable/server/bionic/rstudio-server-lat
 sudo gdebi --n rstudio-server-latest-amd64.deb
 ```
 
-Launch the RStudio Server
+Launch the RStudio Server (this probably already has happened automatically as part of the gdebi installation)
 ```
 sudo rstudio-server start
 ```
 
-Add user (for RStudio) ABCDE with passaord ABCDE (feel free to change as desired)
+Add user (for RStudio) hank with passaord hank (feel free to change as desired)
 
 ```
-sudo useradd   -s /bin/bash -p $(echo ABCDE | openssl passwd -1 -stdin) ABCDE
+sudo adduser hank
 ```
 
-Open RStudio - from the Ports tab open the URL listed for port 8787. RStudio launches in a new browser window. Login with username ABCDE and password ABCDE.
+Define a password for hank and confirm it. Accept default information. 
+
+Open RStudio - from the Ports tab open the URL listed for port 8787. RStudio launches in a new browser window. Login with username *hank* and their password.
+
+Note: RStudio client "remembers" password - and it seems somewhat sensitive to wrong login. You may need to try an incognito browser window and/or a different brower from the one in which you are accessing the gitpod.  
 
 ## Note: Remove/Uninstall
 
