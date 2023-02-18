@@ -4,7 +4,11 @@
 
 Once the Gitpod workspace is launched, you will need to wait for a few minutes while the workspace is prepared. Packages are updated, new files are downloaded and the RStudio server is installed and started. You can check the first terminal window to see what is going on - and find out when the actions are complete. Note: the actions that are performed are defined in the file `.gitpod.yml`.
 
+![](images/terminal-showing-installation.png)  
+
 When the actions are done, you will see a message in the terminal that invites you to complete the creation of a new user - randomly called *hank*  (feel free to create a different user account). You will connect in the browser to the RStudio client using this Linux user and password.
+
+![](images/create-user-hank.png)  
 
 After creating the user, you can open the RStudio GUI in the browser. From the Ports tab open the URL listed for port 8787. 
 ![](images/launch-rstudio-in-browser.png)  
@@ -91,3 +95,4 @@ other resources:
 * How to install RStudio Server open source on Ubuntu 20.04 LTS - https://www.how2shout.com/linux/install-rstudio-server-open-source-on-ubuntu-20-04-lts/
 * Download RStudio Server - https://posit.co/download/rstudio-server/
 * Getting Started with Posit Workbench / RStudio Server - https://support.posit.co/hc/en-us/articles/234653607-Getting-Started-with-Posit-Workbench-RStudio-Server
+* RStudio Server Documentation - Administration - https://docs.posit.co/ide/server-pro/server_management/server_management.html 
