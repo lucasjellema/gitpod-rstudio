@@ -9,6 +9,7 @@ tasks:
       wget https://rstudio.org/download/latest/stable/server/bionic/rstudio-server-latest-amd64.deb
       sudo gdebi -y rstudio-server-latest-amd64.deb
       sudo rstudio-server start
+      sudo useradd   -s /bin/bash -p $(echo ABCDE | openssl passwd -1 -stdin) ABCDE
   - name: Open README 
     command: gp open README.md
 ports:
