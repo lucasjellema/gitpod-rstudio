@@ -10,6 +10,9 @@ tasks:
       gp ports visibility 8787:public
       sudo gdebi --n rstudio-server-latest-amd64.deb
       sudo rstudio-server start
+      echo "********************************************"
+      echo "Now you have to complete the creation of a new user: type a password, confirm it, accept the other defaults and complete the user. Then login to the RStudio Server using this new user and their password "
+      sudo adduser hank
   - name: Open README 
     command: gp open README.md
   - name: Open RStudio Tab
