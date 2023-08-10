@@ -15,7 +15,7 @@ tasks:
       sudo apt-get install gdebi-core
       wget https://s3.amazonaws.com/rstudio-ide-build/desktop/jammy/amd64/rstudio-2022.07.3-586-amd64.deb
       gp ports visibility 8787:public
-      sudo gdebi rstudio-server-2023.06.1-524-amd64.deb
+      sudo gdebi rstudio-2022.07.3-586-amd64.deb
       sudo rstudio-server start
       echo "********************************************"
       echo "Now you have to complete the creation of a new user: type a password, confirm it, accept the other defaults and complete the user. Then login to the RStudio Server using this new user and their password "
