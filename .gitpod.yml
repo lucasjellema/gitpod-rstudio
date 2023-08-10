@@ -12,8 +12,8 @@ tasks:
       # add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
       sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
       
-      sudo apt-get install gdebi-core libssl1.1
-      wget https://download2.rstudio.org/server/focal/amd64/rstudio-server-2023.06.1-524-amd64.deb
+      sudo apt-get install gdebi-core
+      wget https://s3.amazonaws.com/rstudio-ide-build/desktop/jammy/amd64/rstudio-2022.07.3-586-amd64.deb
       gp ports visibility 8787:public
       sudo gdebi rstudio-server-2023.06.1-524-amd64.deb
       sudo rstudio-server start
