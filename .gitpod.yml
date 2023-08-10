@@ -1,18 +1,25 @@
 tasks:
   - name: Install RStudio
     init: |
-      sudo apt-get update
-      sudo apt-get upgrade -y
-      sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-      sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
+      # update indices
+      sudo apt update -qq
+      # install two helper packages we need
+      sudo apt install --no-install-recommends software-properties-common dirmngr
+      # add the signing key (by Michael Rutter) for these repos
+      # To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc 
+      # Fingerprint: E298A3A825C0D65DFD57CBB651716619E084DAB9
+      wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+      # add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
+      sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+      
       sudo apt install -y r-base r-base-core r-recommended r-base-dev gdebi-core build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev
-      wget https://rstudio.org/download/latest/stable/server/bionic/rstudio-server-latest-amd64.deb
+      wget https://download1.rstudio.org/electron/focal/amd64/rstudio-2023.06.1-524-amd64.deb
       gp ports visibility 8787:public
-      sudo gdebi --n rstudio-server-latest-amd64.deb
+      sudo gdebi --n rstudio-2023.06.1-524-amd64.deb
       sudo rstudio-server start
       echo "********************************************"
       echo "Now you have to complete the creation of a new user: type a password, confirm it, accept the other defaults and complete the user. Then login to the RStudio Server using this new user and their password "
-      sudo adduser hank
+      sudo adduser rstudio
   - name: Open README 
     command: gp open README.md
   - name: Open RStudio Tab
